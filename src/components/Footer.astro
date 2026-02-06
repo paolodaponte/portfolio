@@ -1,0 +1,25 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="footer__inner">
+    <p>&copy; {year} Paolo Da Ponte</p>
+  </div>
+</footer>
+
+<style lang="scss">
+  @use '../styles/variables' as *;
+
+  .footer {
+    padding: $spacing-md;
+    text-align: center;
+    color: $color-text-light;
+    font-size: 0.875rem;
+
+    &__inner {
+      max-width: $bp-wide;
+      margin: 0 auto;
+    }
+  }
+</style>

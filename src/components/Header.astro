@@ -1,0 +1,49 @@
+---
+
+---
+
+<header class="header">
+  <div class="header__inner">
+    <a href="/" class="header__logo">Paolo Da Ponte</a>
+    <nav class="header__nav">
+      <a href="#about" class="header__link">Chi sono</a>
+      <a href="#work" class="header__link">Lavori</a>
+      <a href="#contact" class="header__link">Contatti</a>
+    </nav>
+  </div>
+</header>
+
+<style lang="scss">
+  @use '../styles/variables' as *;
+
+  .header {
+    padding: $spacing-sm $spacing-md;
+
+    &__inner {
+      max-width: $bp-wide;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__logo {
+      font-weight: 700;
+      font-size: 1.125rem;
+    }
+
+    &__nav {
+      display: flex;
+      gap: $spacing-md;
+    }
+
+    &__link {
+      font-size: 0.875rem;
+      transition: color 0.3s;
+
+      &:hover {
+        color: $color-accent;
+      }
+    }
+  }
+</style>

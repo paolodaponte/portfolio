@@ -1,17 +1,62 @@
 ---
-
+import Base from '../layouts/Base.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Base title="Paolo Da Ponte — Frontend Developer">
+  <section class="hero">
+    <h1 class="hero__title">Paolo Da Ponte</h1>
+    <p class="hero__subtitle">Frontend Developer & Team Lead — Bolzano</p>
+  </section>
+
+  <section class="about" id="about">
+    <h2 class="about__title">Chi sono</h2>
+    <p class="about__text">Placeholder — lo riempirai dopo</p>
+  </section>
+
+  <section class="work" id="work">
+    <h2 class="work__title">Lavori</h2>
+    <p class="work__text">Placeholder — lo riempirai dopo</p>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2 class="contact__title">Contatti</h2>
+    <p class="contact__text">Placeholder — lo riempirai dopo</p>
+  </section>
+</Base>
+
+<style lang="scss">
+  @use '../styles/variables' as *;
+
+  .hero {
+    padding: $spacing-xl $spacing-md;
+    text-align: center;
+
+    &__title {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      color: $color-primary;
+    }
+
+    &__subtitle {
+      margin-top: $spacing-sm;
+      font-size: 1.25rem;
+      color: $color-text-light;
+    }
+  }
+
+  .about,
+  .work,
+  .contact {
+    max-width: $bp-desktop;
+    margin: 0 auto;
+    padding: $spacing-lg $spacing-md;
+  }
+
+  .about__title,
+  .work__title,
+  .contact__title {
+    font-size: 1.75rem;
+    margin-bottom: $spacing-sm;
+    color: $color-primary;
+  }
+</style>
