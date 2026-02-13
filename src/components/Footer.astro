@@ -4,7 +4,12 @@ const year = new Date().getFullYear();
 
 <footer class="footer">
   <div class="footer__inner">
-    <p>&copy; {year} Paolo Da Ponte</p>
+    <div class="footer__links">
+      <a href="mailto:paolo.daponte@gmail.com" class="footer__link">Email</a>
+      <a href="https://www.linkedin.com/in/paolodaponte/" class="footer__link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://github.com/paolodaponte" class="footer__link" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
+    <p class="footer__copy">&copy; {year} Paolo Da Ponte</p>
   </div>
 </footer>
 
@@ -12,7 +17,7 @@ const year = new Date().getFullYear();
   @use '../styles/variables' as *;
 
   .footer {
-    padding: $spacing-md;
+    padding: $spacing-lg $spacing-md $spacing-md;
     text-align: center;
     color: $color-text-light;
     font-size: 0.875rem;
@@ -20,6 +25,25 @@ const year = new Date().getFullYear();
     &__inner {
       max-width: $bp-wide;
       margin: 0 auto;
+    }
+
+    &__links {
+      display: flex;
+      justify-content: center;
+      gap: $spacing-md;
+      margin-bottom: $spacing-sm;
+    }
+
+    &__link {
+      transition: color 0.3s;
+
+      &:hover {
+        color: $color-accent;
+      }
+    }
+
+    &__copy {
+      color: $color-text-light;
     }
   }
 </style>

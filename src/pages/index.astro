@@ -3,38 +3,112 @@ import Base from '../layouts/Base.astro';
 ---
 
 <Base title="Paolo Da Ponte — Frontend Developer">
+
   <section class="hero">
-    <h1 class="hero__title">Paolo Da Ponte</h1>
-    <p class="hero__subtitle">Frontend Developer & Team Lead — Bolzano</p>
+    <div class="hero__inner">
+      <h1 class="hero__title">Paolo Da Ponte</h1>
+      <p class="hero__subtitle">Frontend Developer & Team Lead — 23 anni di esperienza</p>
+      <p class="hero__location">Bolzano, Italia</p>
+    </div>
   </section>
 
   <section class="about" id="about">
     <h2 class="about__title">Chi sono</h2>
-    <p class="about__text">Placeholder — lo riempirai dopo</p>
+    <div class="about__content">
+      <p>Dal 2002 sviluppo siti web su misura per aziende, hotel e strutture turistiche dell'Alto Adige. Oltre 200 progetti realizzati, tutti con approccio completamente custom — nessun builder, nessun template predefinito.</p>
+      <p>Come responsabile del reparto web di Altea Software coordino un team di 4 sviluppatori, occupandomi sia dello sviluppo front-end che della pianificazione e distribuzione dei progetti.</p>
+      <p>Il mio approccio è artigianale: ogni progetto parte dal design in Figma e viene costruito con HTML semantico, SCSS e JavaScript vanilla. Credo che il codice scritto a mano produca risultati migliori in termini di performance, accessibilità e manutenibilità.</p>
+    </div>
   </section>
 
-  <section class="work" id="work">
-    <h2 class="work__title">Lavori</h2>
-    <p class="work__text">Placeholder — lo riempirai dopo</p>
+  <section class="skills" id="skills">
+    <h2 class="skills__title">Competenze</h2>
+    <div class="skills__grid">
+      <div class="skills__group">
+        <h3 class="skills__label">Front-end</h3>
+        <ul class="skills__list">
+          <li>HTML semantico</li>
+          <li>CSS / SCSS</li>
+          <li>JavaScript</li>
+          <li>GSAP</li>
+        </ul>
+      </div>
+      <div class="skills__group">
+        <h3 class="skills__label">Back-end</h3>
+        <ul class="skills__list">
+          <li>PHP (OOP, MVC)</li>
+          <li>MySQL</li>
+          <li>Laravel</li>
+        </ul>
+      </div>
+      <div class="skills__group">
+        <h3 class="skills__label">CMS</h3>
+        <ul class="skills__list">
+          <li>Joomla (avanzato)</li>
+          <li>WordPress (base)</li>
+        </ul>
+      </div>
+      <div class="skills__group">
+        <h3 class="skills__label">Strumenti</h3>
+        <ul class="skills__list">
+          <li>Figma</li>
+          <li>Git</li>
+          <li>Lighthouse / PageSpeed</li>
+        </ul>
+      </div>
+      <div class="skills__group">
+        <h3 class="skills__label">In approfondimento</h3>
+        <ul class="skills__list">
+          <li>Astro</li>
+          <li>AI-assisted development</li>
+          <li>Claude Code</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects" id="projects">
+    <h2 class="projects__title">Progetti</h2>
+    <p class="projects__intro">Una selezione di progetti recenti. Case study dettagliati in arrivo.</p>
+    <div class="projects__grid">
+      <article class="projects__card">
+        <h3 class="projects__card-title">Progetto 1</h3>
+        <p class="projects__card-desc">Sito custom per struttura turistica — HTML, SCSS, JS, PHP</p>
+      </article>
+      <article class="projects__card">
+        <h3 class="projects__card-title">Progetto 2</h3>
+        <p class="projects__card-desc">Portale aziendale con area riservata — Joomla, custom component</p>
+      </article>
+      <article class="projects__card">
+        <h3 class="projects__card-title">Progetto 3</h3>
+        <p class="projects__card-desc">Landing page con animazioni — HTML, SCSS, GSAP</p>
+      </article>
+    </div>
   </section>
 
   <section class="contact" id="contact">
     <h2 class="contact__title">Contatti</h2>
-    <p class="contact__text">Placeholder — lo riempirai dopo</p>
+    <p class="contact__text">Disponibile per collaborazioni e nuove opportunità.</p>
+    <div class="contact__links">
+      <a href="mailto:paolo.daponte@gmail.com" class="contact__link">paolo.daponte@gmail.com</a>
+      <a href="https://www.linkedin.com/in/paolodaponte/" class="contact__link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://github.com/paolodaponte" class="contact__link" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
   </section>
+
 </Base>
 
 <style lang="scss">
   @use '../styles/variables' as *;
 
+  /* Hero */
   .hero {
     padding: $spacing-xl $spacing-md;
     text-align: center;
 
-    &__title {
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 800;
-      color: $color-primary;
+    &__inner {
+      max-width: $bp-desktop;
+      margin: 0 auto;
     }
 
     &__subtitle {
@@ -42,10 +116,18 @@ import Base from '../layouts/Base.astro';
       font-size: 1.25rem;
       color: $color-text-light;
     }
+
+    &__location {
+      margin-top: $spacing-xs;
+      font-size: 0.875rem;
+      color: $color-text-light;
+    }
   }
 
+  /* Sezioni comuni */
   .about,
-  .work,
+  .skills,
+  .projects,
   .contact {
     max-width: $bp-desktop;
     margin: 0 auto;
@@ -53,10 +135,131 @@ import Base from '../layouts/Base.astro';
   }
 
   .about__title,
-  .work__title,
+  .skills__title,
+  .projects__title,
   .contact__title {
-    font-size: 1.75rem;
     margin-bottom: $spacing-sm;
-    color: $color-primary;
+  }
+
+  /* About */
+  .about__content {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+    line-height: 1.8;
+  }
+
+  /* Skills */
+  .skills {
+    &__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: $spacing-md;
+
+      @media (max-width: $bp-tablet) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media (max-width: $bp-mobile) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    &__group {
+      padding: $spacing-sm;
+      background: $color-bg-alt;
+      border-radius: 8px;
+    }
+
+    &__label {
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: $color-accent;
+      margin-bottom: $spacing-xs;
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      font-size: 0.9375rem;
+    }
+  }
+
+  /* Projects */
+  .projects {
+    &__intro {
+      color: $color-text-light;
+      margin-bottom: $spacing-md;
+    }
+
+    &__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: $spacing-md;
+
+      @media (max-width: $bp-tablet) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media (max-width: $bp-mobile) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    &__card {
+      padding: $spacing-md;
+      background: $color-bg-alt;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      transition: border-color 0.3s;
+
+      &:hover {
+        border-color: $color-accent;
+      }
+    }
+
+    &__card-title {
+      font-size: 1.125rem;
+      margin-bottom: $spacing-xs;
+    }
+
+    &__card-desc {
+      font-size: 0.875rem;
+      color: $color-text-light;
+    }
+  }
+
+  /* Contact */
+  .contact {
+    text-align: center;
+
+    &__text {
+      color: $color-text-light;
+      margin-bottom: $spacing-md;
+    }
+
+    &__links {
+      display: flex;
+      justify-content: center;
+      gap: $spacing-md;
+
+      @media (max-width: $bp-mobile) {
+        flex-direction: column;
+        align-items: center;
+        gap: $spacing-sm;
+      }
+    }
+
+    &__link {
+      color: $color-accent;
+      font-weight: 600;
+      transition: opacity 0.3s;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
   }
 </style>

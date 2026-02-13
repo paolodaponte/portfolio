@@ -7,7 +7,8 @@
     <a href="/" class="header__logo">Paolo Da Ponte</a>
     <nav class="header__nav">
       <a href="#about" class="header__link">Chi sono</a>
-      <a href="#work" class="header__link">Lavori</a>
+      <a href="#skills" class="header__link">Competenze</a>
+      <a href="#projects" class="header__link">Progetti</a>
       <a href="#contact" class="header__link">Contatti</a>
     </nav>
   </div>
@@ -25,6 +26,11 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+
+      @media (max-width: $bp-mobile) {
+        flex-direction: column;
+        gap: $spacing-sm;
+      }
     }
 
     &__logo {
@@ -35,6 +41,10 @@
     &__nav {
       display: flex;
       gap: $spacing-md;
+
+      @media (max-width: $bp-mobile) {
+        gap: $spacing-sm;
+      }
     }
 
     &__link {
