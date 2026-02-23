@@ -7,3 +7,15 @@ body {
   color: $color-text;
   background-color: $color-bg;
 }
+
+// Anti-flash: nasconde gli elementi animati solo se JS è attivo
+// Se JS non carica, tutto resta visibile
+.js-ready .hero__title,
+.js-ready .hero__subtitle,
+.js-ready .hero__location,
+.js-ready .about,
+.js-ready .skills,
+.js-ready .projects,
+.js-ready .contact {
+  opacity: 0;
+}

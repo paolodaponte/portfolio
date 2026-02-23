@@ -263,3 +263,63 @@ import Base from '../layouts/Base.astro';
     }
   }
 </style>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // 1. Hero — fade in al caricamento (da opacity 0 CSS → opacity 1)
+  gsap.to('.hero__title', {
+    opacity: 1,
+    y: 0,
+    duration: 0.8,
+    ease: 'power2.out',
+  });
+
+  gsap.to('.hero__subtitle', {
+    opacity: 1,
+    y: 0,
+    duration: 0.8,
+    delay: 0.2,
+    ease: 'power2.out',
+  });
+
+  gsap.to('.hero__location', {
+    opacity: 1,
+    y: 0,
+    duration: 0.8,
+    delay: 0.35,
+    ease: 'power2.out',
+  });
+
+  // 2. Sezioni — reveal on scroll
+  gsap.utils.toArray('.about, .skills, .projects, .contact').forEach(section => {
+    gsap.to(section, {
+      scrollTrigger: {
+        trigger: section,
+        start: 'top 80%',
+        toggleActions: 'play none none none',
+      },
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      ease: 'power2.out',
+    });
+  });
+
+  // 3. Skills card — stagger
+  gsap.to('.skills__group', {
+    scrollTrigger: {
+      trigger: '.skills__grid',
+      start: 'top 80%',
+    },
+    opacity: 1,
+    y: 0,
+    duration: 0.4,
+    stagger: 0.1,
+    ease: 'power2.out',
+  });
+</script>
+
