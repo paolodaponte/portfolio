@@ -1,0 +1,99 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map(project => ({
+    params: { slug: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+---
+
+<Base title={project.data.title}>
+  <article class="case-study">
+    <header class="case-study__header">
+      <a href="/#projects" class="case-study__back">&larr; Tutti i progetti</a>
+      <h1 class="case-study__title">{project.data.title}</h1>
+      <div class="case-study__meta">
+        <span class="case-study__year">{project.data.year}</span>
+        {project.data.tags.map(tag => (
+          <span class="case-study__tag">{tag}</span>
+        ))}
+      </div>
+    </header>
+    <div class="case-study__content">
+      <Content />
+    </div>
+  </article>
+</Base>
+
+<style lang="scss">
+  @use '../../styles/variables' as *;
+
+  .case-study {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: $spacing-lg $spacing-md;
+
+    &__back {
+      display: inline-block;
+      margin-bottom: $spacing-md;
+      font-size: 0.875rem;
+      color: $color-accent;
+      text-decoration: none;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    &__title {
+      margin-bottom: $spacing-sm;
+    }
+
+    &__meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: $spacing-lg;
+    }
+
+    &__year {
+      font-size: 0.875rem;
+      color: $color-text-light;
+    }
+
+    &__tag {
+      font-size: 0.75rem;
+      padding: 0.125rem 0.5rem;
+      background: rgba($color-accent, 0.1);
+      color: $color-accent;
+      border-radius: 4px;
+    }
+
+    &__content {
+      line-height: 1.8;
+
+      :global(h2) {
+        margin-top: $spacing-md;
+        margin-bottom: $spacing-sm;
+        font-size: 1.375rem;
+      }
+
+      :global(p) {
+        margin-bottom: $spacing-sm;
+        color: $color-text-light;
+      }
+
+      :global(strong) {
+        color: $color-text;
+      }
+    }
+  }
+</style>
