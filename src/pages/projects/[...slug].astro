@@ -14,7 +14,11 @@ const { project } = Astro.props;
 const { Content } = await render(project);
 ---
 
-<Base title={project.data.title}>
+<Base
+  title={project.data.title}
+  description={project.data.description}
+  ogType="article"
+>
   <article class="case-study">
     <header class="case-study__header">
       <a href="/#projects" class="case-study__back">&larr; Tutti i progetti</a>

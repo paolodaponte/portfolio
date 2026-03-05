@@ -3,7 +3,24 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.scss';
 
-const { title } = Astro.props;
+interface Props {
+  title: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+  ogType?: string;
+}
+
+const {
+  title,
+  description = "Portfolio di Paolo — sviluppatore web con 23+ anni di esperienza",
+  canonical = Astro.url.href,
+  ogImage = "/og-default.png",
+  ogType = "website",
+} = Astro.props;
+
+const siteTitle = `${title} | Paolo Portfolio`;
+const ogImageUrl = new URL(ogImage, Astro.site).href;
 ---
 
 <html lang="it">
@@ -11,7 +28,24 @@ const { title } = Astro.props;
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <title>{title}</title>
+  <title>{siteTitle}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={siteTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={ogImageUrl} />
+  <meta property="og:type" content={ogType} />
+  <meta property="og:locale" content="it_IT" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={siteTitle} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageUrl} />
+
   <script is:inline>document.documentElement.classList.add('js-ready');</script>
 </head>
 <body>
