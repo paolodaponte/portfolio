@@ -22,7 +22,7 @@ La struttura dei contenuti era articolata: camere con tipologie diverse (Preside
 
 **Effetto wow**: video hero a pieno schermo in homepage, gallerie fotografiche con immagini ad alta qualità, layout che lascia respirare i contenuti. Ogni sezione è costruita per raccontare una storia visiva, non solo mostrare informazioni.
 
-**Architettura**: template Joomla completamente custom con componenti modulari per ogni tipologia di contenuto. Il CMS permette al cliente di aggiornare camere, ristoranti, eventi e gallerie senza toccare codice.
+**Template 100% custom**: Joomla gestisce i contenuti, ma il template è interamente scritto a mano — HTML, SCSS, JavaScript, PHP. Nessun builder, nessun tema predefinito, nessun framework CSS. Ogni componente è progettato e codificato su misura per la complessità di questo progetto, con moduli specifici per camere, ristoranti, eventi e gallerie. Il cliente aggiorna tutto dal CMS senza toccare codice.
 
 **Booking engine**: integrazione con Simple Booking per le prenotazioni dirette, senza uscire dall'esperienza del sito.
 

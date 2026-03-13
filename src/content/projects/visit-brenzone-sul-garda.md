@@ -20,7 +20,7 @@ La struttura dei contenuti era articolata: 16 borghi, diverse tipologie di allog
 
 **Performance**: lazy loading su immagini e video con Intersection Observer, gestione automatica del mute/unmute sui video, script caricati in modo asincrono. Il sito risulta reattivo anche su connessioni mobili.
 
-**Architettura**: template Joomla completamente custom con componenti modulari. Nessun builder, nessun template predefinito — ogni sezione è costruita su misura per i contenuti specifici del progetto.
+**Template 100% custom**: Joomla è usato come CMS per la gestione dei contenuti, ma il template è scritto interamente a mano — HTML, SCSS, JavaScript, PHP. Nessun builder, nessun tema predefinito, nessun framework CSS. Ogni componente e ogni layout è progettato e codificato su misura per questo progetto.
 
 **SEO e dati strutturati**: implementazione di Schema.org (TouristDestination, Organization, WebPage) per massimizzare la visibilità sui motori di ricerca. Google Tag Manager per il tracciamento.
 
